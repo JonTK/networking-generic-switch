@@ -30,6 +30,7 @@ Supported Devices
 * Dell Force10
 * Brocade ICX (FastIron)
 * Ruijie switches
+* HPE Comware 7 switches
 
 This Mechanism Driver architecture allows easily to add more devices
 of any type.
@@ -154,6 +155,14 @@ for the Ruijie device::
     secret = secret
     ip = <switch mgmt ip address>
 
+for the HPE Comware 7 device::
+
+    [genericswitch:hp-comware7-hostname]
+    device_type = netmiko_hp_comware
+    ip = <switch mgmt ip address>
+    username = admin
+    password = password
+
 Additionally the ``GenericSwitch`` mechanism driver needs to be enabled from
 the ml2 config file ``/etc/neutron/plugins/ml2/ml2_conf.ini``::
 
@@ -170,4 +179,3 @@ the ml2 config file ``/etc/neutron/plugins/ml2/ml2_conf.ini``::
         --config-file /etc/neutron/neutron.conf \
         --config-file /etc/neutron/plugins/ml2/ml2_conf.ini \
         --config-file /etc/neutron/plugins/ml2/ml2_conf_genericswitch.ini
-
